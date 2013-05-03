@@ -2,6 +2,10 @@ squazic_highline_guide_homepage:
     pattern:  /
     defaults: { _controller: SquazicHighlineGuideBundle:Default:index }
 
+squazic_highline_guide_data:
+    pattern:  /data
+    defaults: { _controller: SquazicHighlineGuideBundle:Default:data }
+
 SquazicHighlineGuideBundle_artwork:
     resource: "@SquazicHighlineGuideBundle/Resources/config/routing/artwork.yml"
     prefix:   /admin/artwork
