@@ -63,7 +63,17 @@ class Artwork
     {
         $this->artist = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
+    /**
+     * toString
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->title;
+    }
+
 
     /**
      * Get id
