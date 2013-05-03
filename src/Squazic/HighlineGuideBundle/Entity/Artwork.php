@@ -176,6 +176,7 @@ class Artwork
     public function addArtist(\Squazic\HighlineGuideBundle\Entity\Artist $artist)
     {
         $this->artist[] = $artist;
+	$artist->addArtwork($this);
     
         return $this;
     }
