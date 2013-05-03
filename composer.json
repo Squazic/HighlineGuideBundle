@@ -18,7 +18,14 @@
         "sensio/generator-bundle": "2.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
-        "kriswallsmith/assetic": "1.1.*@dev"
+        "kriswallsmith/assetic": "1.1.*@dev",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "doctrine/data-fixtures": "dev-master",
+        "twitter/bootstrap": "*",
+        "yui/yui-compressor": "*",
+        "nzakas/cssembed": "*",
+        "leafo/lessphp": "*",
+        "jquery/jquery": "*"
     },
     "scripts": {
         "post-install-cmd": [
@@ -34,11 +41,39 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
-    "extra": {
-        "symfony-app-dir": "app",
-        "symfony-web-dir": "web",
-        "branch-alias": {
-            "dev-master": "2.1-dev"
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "yui/yui-compressor",
+                "version": "2.4.7",
+                "dist": {
+                    "url": "https://github.com/downloads/yui/yuicompressor/yuicompressor-2.4.7.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "nzakas/cssembed",
+                "version": "0.4.5",
+                "dist": {
+                    "url": "https://github.com/downloads/nzakas/cssembed/cssembed-0.4.5.jar",
+                    "type": "file"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "jquery/jquery",
+                "version": "1.9.2",
+                "dist": {
+                    "url": "http://code.jquery.com/jquery-1.9.1.js",
+                    "type": "file"
+                }
+            }
         }
-    }
+    ]
 }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>High Line Park Map Guide - Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block stylesheets %}
+        {% stylesheets '@bootstrap_less' combine=true %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+        {% endstylesheets %}
+    {% endblock %}
+
+    {% block javascripts %}
+        {% javascripts '@jquery_js' '@bootstrap_js' filter='?yui_js' combine=true %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button class="btn btn-navbar collapsed" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="{{ path('squazic_highline_guide_homepage') }}">High Line Park Map Guide</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="{% if 'artwork' in app.request.attributes.get('_route') %}active{% endif %}">
+                        <a href="{{ path('artwork') }}">Artwork</a>
+                    </li>
+                    <li class="{% if 'artist' in app.request.attributes.get('_route') == 'adviser' %}active{% endif %}">
+                        <a href="{{ path('artist') }}">Artist</a>
+                    </li>
+                </ul>
+
+                <ul class="nav pull-right">
+                    <li><a href="{{ path('security_logout') }}">Logout</a></li>
+                </ul>
+            </div>
+
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <header class="container">
+        {% block header %}{% endblock %}
+    </header>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+<!--/.fluid-container-->
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+Artwork:
+    type: entity
+    table: artwork
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        title:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        latitude:
+            type: decimal
+            nullable: true
+        longitude:
+            type: decimal
+            nullable: true
+    manyToMany:
+        artist:
+            targetEntity: Artist
+            cascade: {  }
+            mappedBy: artwork
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }
