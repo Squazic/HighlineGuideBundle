@@ -1,0 +1,30 @@
+artwork:
+    pattern:  /
+    defaults: { _controller: "SquazicHighlineGuideBundle:Artwork:index" }
+
+artwork_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SquazicHighlineGuideBundle:Artwork:show" }
+
+artwork_new:
+    pattern:  /new
+    defaults: { _controller: "SquazicHighlineGuideBundle:Artwork:new" }
+
+artwork_create:
+    pattern:  /create
+    defaults: { _controller: "SquazicHighlineGuideBundle:Artwork:create" }
+    requirements: { _method: post }
+
+artwork_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SquazicHighlineGuideBundle:Artwork:edit" }
+
+artwork_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SquazicHighlineGuideBundle:Artwork:update" }
+    requirements: { _method: post }
+
+artwork_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SquazicHighlineGuideBundle:Artwork:delete" }
+    requirements: { _method: post }

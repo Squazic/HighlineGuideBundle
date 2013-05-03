@@ -1,3 +1,11 @@
 squazic_highline_guide_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: SquazicHighlineGuideBundle:Default:index }
+
+SquazicHighlineGuideBundle_artwork:
+    resource: "@SquazicHighlineGuideBundle/Resources/config/routing/artwork.yml"
+    prefix:   /artwork
+
+SquazicHighlineGuideBundle_artist:
+    resource: "@SquazicHighlineGuideBundle/Resources/config/routing/artist.yml"
+    prefix:   /artist
