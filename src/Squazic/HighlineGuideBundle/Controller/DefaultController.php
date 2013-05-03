@@ -9,9 +9,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('SquazicHighlineGuideBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('SquazicHighlineGuideBundle:Default:index.html.twig', array('name' => 'Test'));
     }
 
     /**

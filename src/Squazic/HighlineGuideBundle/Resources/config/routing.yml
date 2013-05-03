@@ -1,5 +1,5 @@
 squazic_highline_guide_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: SquazicHighlineGuideBundle:Default:index }
 
 SquazicHighlineGuideBundle_artwork:
