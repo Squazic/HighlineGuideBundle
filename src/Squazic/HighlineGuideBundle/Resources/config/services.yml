@@ -1,0 +1,7 @@
+parameters:
+#    squazic_highline_guide.example.class: Squazic\HighlineGuideBundle\Example
+
+services:
+#    squazic_highline_guide.example:
+#        class: %squazic_highline_guide.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
