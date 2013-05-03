@@ -7,6 +7,11 @@
       body { height: 100%; margin: 0; padding: 0 }
       #map-canvas { height: 100% }
     </style>
+
+    {% javascripts '@jquery_js' '@bootstrap_js' filter='?yui_js' combine=true %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaKBq7-KqZG838d3FKR3eJJ1BnknYyEvk&sensor=true">
     </script>
