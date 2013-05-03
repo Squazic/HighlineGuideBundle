@@ -38,14 +38,14 @@ class Artwork
     /**
      * @var float
      *
-     * @ORM\Column(name="latitude", type="decimal", nullable=true)
+     * @ORM\Column(name="latitude", type="decimal", scale=6, nullable=true)
      */
     private $latitude;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="longitude", type="decimal", nullable=true)
+     * @ORM\Column(name="longitude", type="decimal", scale=6, nullable=true)
      */
     private $longitude;
 
