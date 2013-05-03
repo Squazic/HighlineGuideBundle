@@ -4,8 +4,18 @@ squazic_highline_guide_homepage:
 
 SquazicHighlineGuideBundle_artwork:
     resource: "@SquazicHighlineGuideBundle/Resources/config/routing/artwork.yml"
-    prefix:   /artwork
+    prefix:   /admin/artwork
 
 SquazicHighlineGuideBundle_artist:
     resource: "@SquazicHighlineGuideBundle/Resources/config/routing/artist.yml"
-    prefix:   /artist
+    prefix:   /admin/artist
+
+security_login:
+    pattern:  /login
+    defaults: { _controller: SquazicHighlineGuideBundle:Default:login }
+
+security_check:
+    pattern:  /admin/login_check
+
+security_logout:
+    pattern:  /admin/logout
