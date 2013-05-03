@@ -1,0 +1,34 @@
+Artist:
+    type: entity
+    table: artist
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+    manyToMany:
+        artwork:
+            targetEntity: Artwork
+            cascade: {  }
+            mappedBy: null
+            inversedBy: artist
+            joinTable:
+                name: artist_artwork
+                joinColumns:
+                    -
+                        name: artist_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: artwork_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }
