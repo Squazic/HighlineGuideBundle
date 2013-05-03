@@ -23,16 +23,21 @@ See below for dependencies and install instructions
 
     composer.phar update
 
+* Clear the cache
+
+    php app/console cache:clear --env=prod
+
+* Dump assets
+
+    php app/console assetic:dump --env=prod
+    php app/console assets:install --symlink --env=prod
+
 * Run the following commands to create the database and fill it with data fixtures
 
-    php app/console doctrine:database:create
-    php app/console doctrine:fixtures:load
+    php app/console doctrine:database:create --env=prod
+    php app/console doctrine:fixtures:load --env=prod
 
 * Make the necessary directories readable by the apache user
 
     chmod g+w -R app/cache && chgrp -R [APACHE USER HERE] app/cache
     chmod g+w -R app/logs && chgrp -R [APACHE USER HERE] app/logs
-
-To visit the dev site, go to http://localhost/[FOLDERNAMEHERE]/app_dev.php/
-That URL is not implemented yet, but the backend can be accessed by
-.../app_dev.php/admin/artwork
