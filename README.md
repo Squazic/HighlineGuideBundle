@@ -17,11 +17,6 @@ See below for dependencies and install instructions
 
 * Clone and symlink the `web` folder to the html root
 
-* Make the necessary directories readable by the apache user
-
-    chmod g+w -R app/cache && chgrp -R [APACHE USER HERE] app/cache
-    chmod g+w -R app/logs && chgrp -R [APACHE USER HERE] app/logs
-
 * Copy `app/config/parameters.yml.dist` to `app/config/parameters.yml`
 
 * In the project folder, install dependencies using composer:
@@ -32,6 +27,11 @@ See below for dependencies and install instructions
 
     php app/console doctrine:database:create
     php app/console doctrine:fixtures:load
+
+* Make the necessary directories readable by the apache user
+
+    chmod g+w -R app/cache && chgrp -R [APACHE USER HERE] app/cache
+    chmod g+w -R app/logs && chgrp -R [APACHE USER HERE] app/logs
 
 To visit the dev site, go to http://localhost/[FOLDERNAMEHERE]/app_dev.php/
 That URL is not implemented yet, but the backend can be accessed by
