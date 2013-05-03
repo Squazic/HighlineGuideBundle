@@ -19,7 +19,7 @@ class DefaultController extends Controller
     {
         $conn = $this->get('database_connection');
 
-        $sql = 'SELECT w.title, w.description, w.latitude, w.longitude, a.name FROM artwork w
+        $sql = 'SELECT w.title, w.description, w.latitude, w.longitude, a.name as artist FROM artwork w
                 JOIN artist_artwork aa ON w.id = aa.artwork_id
                 JOIN artist a ON aa.artist_id = a.id';
 
