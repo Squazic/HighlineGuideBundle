@@ -12,7 +12,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SquazicHighlineGuideBundle:Default:index.html.twig', array('name' => 'Test'));
+        return $this->render('SquazicHighlineGuideBundle:Default:index.html.twig');
     }
 
     public function dataAction()
