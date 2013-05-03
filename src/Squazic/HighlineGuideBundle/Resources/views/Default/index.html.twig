@@ -24,6 +24,37 @@
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
+        var infoWindow = new google.maps.InfoWindow;
+
+        // Parse data from data feed for info window markers
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: '{{ path('squazic_highline_guide_data') }}',
+                data: { get_param: 'value' },
+                dataType: 'json',
+                success: function (data) {
+                    $.each(data, function (index, marker) {
+                        var html = '<h1>' + marker.title + '</h1>' +
+                            '<h3>by ' + marker.artist + '</h3>' +
+                            '<p>' + marker.description + '</p>';
+                        var point = new google.maps.LatLng(marker.latitude, marker.longitude);
+                        var marker = new google.maps.Marker({
+                          map: map,
+                          position: point
+                        });
+                        bindInfoWindow(marker, map, infoWindow, html);
+                    });
+                }
+            });
+        });
+      }
+
+      function bindInfoWindow(marker, map, infoWindow, html) {
+        google.maps.event.addListener(marker, 'click', function() {
+          infoWindow.setContent(html);
+          infoWindow.open(map, marker);
+        });
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
