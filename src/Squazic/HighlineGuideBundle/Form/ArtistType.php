@@ -12,8 +12,11 @@ class ArtistType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('artwork')
-        ;
+            ->add('artwork', 'entity', array(
+                'class' => 'SquazicHighlineGuideBundle:Artwork',
+                'multiple' => true,
+                'required' => false,
+        ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
