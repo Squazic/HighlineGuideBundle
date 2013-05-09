@@ -17,13 +17,32 @@ class DefaultController extends Controller
 
     public function dataAction()
     {
-        $conn = $this->get('database_connection');
+        $em = $this->getDoctrine()->getEntityManager();
+        $artworks = $em->createQueryBuilder()
+            ->select('w')
+            ->from('SquazicHighlineGuideBundle:Artwork', 'w')
+            ->join('w.artist', 'a')
+            ->getQuery()->getResult();
 
-        $sql = 'SELECT w.title, w.description, w.latitude, w.longitude, a.name as artist FROM artwork w
-                JOIN artist_artwork aa ON w.id = aa.artwork_id
-                JOIN artist a ON aa.artist_id = a.id';
+        $data = array();
+        foreach($artworks as $artwork) {
+            $artworkData['title'] = $artwork->getTitle();
+            $artworkData['description'] = $artwork->getDescription();
+            $artworkData['latitude'] = $artwork->getLatitude();
+            $artworkData['longitude'] = $artwork->getLongitude();
+            $artists = $artwork->getArtist()->toArray();
 
-        $data = $conn->fetchAll($sql);
+            if(count($artists) === 1) {
+                $artworkData['artists'] = current($artists)->getName();
+            } else {
+                $artistNames = array();
+                foreach($artists as $artist) {
+                    $artistNames[] = $artist->getName();
+                }
+                $artworkData['artists'] = $artistNames;
+            }
+            $data[] = $artworkData;
+        }
 
         return new JsonResponse($data);
     }

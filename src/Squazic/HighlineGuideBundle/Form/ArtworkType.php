@@ -15,8 +15,12 @@ class ArtworkType extends AbstractType
             ->add('description')
             ->add('latitude')
             ->add('longitude')
-            ->add('artist')
-        ;
+            ->add('artist', 'entity', array(
+                'class' => 'SquazicHighlineGuideBundle:Artist',
+                'multiple' => true,
+                'by_reference' => false,
+                'required' => false,
+        ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

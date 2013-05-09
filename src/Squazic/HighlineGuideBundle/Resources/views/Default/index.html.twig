@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>High Line Park Map Guide</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
       html { height: 100% }
@@ -35,8 +36,26 @@
                 dataType: 'json',
                 success: function (data) {
                     $.each(data, function (index, marker) {
+                        // Display artists based on number
+                        var artists = '';
+                        var numArtists = 0;
+                        if ( marker.artists instanceof Array ) {
+                            numArtists = marker.artists.length;
+                            for (var i=0; i<numArtists; i++) {
+                                artists += marker.artists[i];
+                                if (i === numArtists-2) {
+                                    artists += ' and ';
+                                } else if (i === numArtists-3) {
+                                    artists += ', ';
+                                }
+                            }
+                        } else {
+                            artists = marker.artists;
+                        }
+
+                        // Collect other data necessasry
                         var html = '<h1>' + marker.title + '</h1>' +
-                            '<h3>by ' + marker.artist + '</h3>' +
+                            '<h3>by ' + artists + '</h3>' +
                             '<p>' + marker.description + '</p>';
                         var point = new google.maps.LatLng(marker.latitude, marker.longitude);
                         var marker = new google.maps.Marker({
