@@ -127,11 +127,24 @@ class ArtworkController extends Controller
             throw $this->createNotFoundException('Unable to find Artwork entity.');
         }
 
+        $originalArtists = $entity->getArtist()->toArray();
+
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new ArtworkType(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
+            // Make sure only selected artists are associated
+            $checkedArtists = $entity->getArtist()->toArray();
+
+            // Remove old ones
+            foreach($originalArtists as $artist) {
+                if (!in_array($artist, $checkedArtists)) {
+                    $artist->removeArtwork($entity);
+                    $em->persist($artist);
+                }
+            }
+
             $em->persist($entity);
             $em->flush();
 
