@@ -2,8 +2,9 @@
 
 ----
 
-Welcome to your interactive guide to the high line park attractions.
-This app is hosted at: http://highlinemap.eu1.frbit.net/
+Welcome to your interactive guide to the High Line Park attractions.
+
+This app is hosted at: http://highline-guide.pagodabox.com/
 
 ## Future Enhancements
 ----
